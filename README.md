@@ -58,9 +58,9 @@
 | Category | Technologies |
 |----------|-------------|
 | **Frontend** | React, Vite, CSS Modules |
-| **AI Model** | PyTorch, EfficientNet, ResNet |
+| **AI Model** | PyTorch, DenseNet-121, Gated Cross Attention |
 | **Environment** | Google Colab Pro |
-| **Dataset** | MIMIC-CXR (Image) + Pseudo Vital Data |
+| **Dataset** | MIMIC-CXR (Image) + Pseudo Vital Data + Hospial WBC, BNP |
 
 ---
 

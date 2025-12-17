@@ -1,67 +1,75 @@
-# 🖥️ ER-CXR AI Web Client
+# 🏥 ER-CXR AI Web Client
 
-응급실 흉부 엑스레이 판독 보조 AI 모델의 웹 인터페이스입니다.
-React와 Vite를 사용하여 빠르고 직관적인 사용자 경험을 제공하며, 의료진이 엑스레이 이미지와 바이탈 사인을 입력하면 AI 분석 결과를 시각화하여 보여줍니다.
+응급실 흉부 X-ray 판독 보조 AI 시스템의 웹 인터페이스입니다.
+
+React + Vite 기반으로 구축되었으며, 의료진이 X-ray 이미지와 바이탈 사인을 입력하면 AI 분석 결과를 직관적으로 시각화합니다.
+
+---
 
 ## 🛠 Tech Stack
 
-* **Framework:** React 18
-* **Build Tool:** Vite
-* **Language:** JavaScript (ES6+)
-* **Styling:** CSS Modules
-* **HTTP Client:** Axios (AI 서버 통신용)
+| Category | Technology |
+|----------|------------|
+| Framework | React 18 |
+| Build Tool | Vite |
+| Language | JavaScript (ES6+) |
+| Styling | CSS Modules |
+| HTTP Client | Axios |
+
+---
 
 ## 🚀 Getting Started
 
-이 프로젝트를 로컬 환경에서 실행하기 위한 방법입니다.
+### Prerequisites
+- Node.js 18.0.0+
+- npm
 
-### 1. Prerequisites
-* Node.js 18.0.0 이상
-* npm
-
-### 2. Installation
-프로젝트 의존성 라이브러리를 설치합니다.
-
+### Installation & Run
 ```bash
+# 의존성 설치
 npm install
-```
 
-### 3. Run Development Server
-개발 모드로 서버를 실행합니다.
-
-```bash
+# 개발 서버 실행
 npm run dev
-```
 
-실행 후 터미널에 표시되는 로컬 주소(예: http://localhost:5173)로 접속하세요.
-
-### 4. Build for Production
-배포를 위한 정적 파일을 생성합니다. 결과물은 dist 폴더에 생성됩니다.
-
-```bash
+# 프로덕션 빌드
 npm run build
 ```
 
-## 📂 Folder Structure
-```text
+---
+
+## 📂 Project Structure
+```
 src/
-├── api/           # 백엔드/AI 모델 API 호출 함수 모음
-├── assets/        # 로컬 이미지, 아이콘, 폰트 리소스
-├── components/    # 재사용 가능한 UI 컴포넌트 (Button, Input 등)
-├── pages/         # 페이지 단위 컴포넌트 (Dashboard, Login 등)
-├── App.jsx        # 메인 라우팅 및 레이아웃 설정
-└── main.jsx       # 진입점 (Entry Point)
+├── api/           # API 호출 함수
+├── assets/        # 이미지, 아이콘, 폰트
+├── components/    # 재사용 UI 컴포넌트
+├── pages/         # 페이지 컴포넌트
+├── App.jsx        # 라우팅 설정
+└── main.jsx       # Entry Point
 ```
 
-## ✨ Key Features (UI)
+---
 
-본 프로젝트는 **'REM XTA UI Design Guidelines v1.0'**을 준수하여 개발되었습니다. 응급실(ER) 환경에 최적화된 **Flat Clinical UI**를 적용했습니다.
+## ✨ Key Features
 
-* [cite_start]**Smart Triage Dashboard:** AI 분석 결과(Critical/Warning/Normal)와 KTAS(한국형 응급환자 분류도구) 기준에 따라 위급 환자를 자동으로 최상단에 정렬하여 의료진의 빠른 판단을 지원합니다[cite: 33, 34].
-* [cite_start]**Scroll-free Interface:** 분초를 다투는 응급 상황을 고려하여, 스크롤 없이 한 화면에서 모든 정보를 확인할 수 있는 'Single-screen Layout'을 구현했습니다[cite: 19, 78].
-* [cite_start]**Side-by-Side Comparison:** 환자의 과거 X-ray 영상과 현재 영상을 나란히 비교(Side-by-Side)하고, 타임라인 뷰를 통해 병변의 변화를 추적할 수 있습니다[cite: 25, 27].
-* **Interactive AI Viewer:**
-    * [cite_start]**Heatmap Overlay:** AI가 병변으로 의심한 부위를 히트맵으로 시각화하며, 토글 버튼으로 켜고 끌 수 있습니다[cite: 27, 103].
-    * [cite_start]**Standard Tools:** 의료 영상 표준 기능인 Window/Level 조절, Zoom/Pan 기능을 제공합니다[cite: 102].
-* [cite_start]**Adjustable AI Threshold:** 기관별/상황별 기준에 맞춰 AI 모델의 민감도(Sensitivity) 임계값을 실시간 슬라이더로 조정할 수 있습니다[cite: 30].
-* [cite_start]**Medical-Safe Color System:** 의료 안전을 위해 채도를 조절한 Semantic Colors(Soft Red/Green)를 사용하고, Lucide React 아이콘을 활용하여 직관성을 높였습니다[cite: 45, 87].
+**REM XTA UI Design Guidelines v1.0** 기반의 Flat Clinical UI를 적용했습니다.
+
+### 📋 Smart Triage Dashboard
+AI 분석 결과(Critical/Warning/Normal)와 KTAS 기준에 따라 위급 환자를 자동 정렬하여 빠른 의사결정을 지원합니다.
+
+### 🖥 Scroll-free Interface
+응급 상황을 고려한 Single-screen Layout으로, 스크롤 없이 모든 정보를 한 화면에서 확인할 수 있습니다.
+
+### 🔄 Side-by-Side Comparison
+과거/현재 X-ray 영상 비교 및 타임라인 뷰를 통한 병변 변화 추적 기능을 제공합니다.
+
+### 🔬 Interactive AI Viewer
+- **Heatmap Overlay**: AI 의심 병변 부위 시각화 (토글 가능)
+- **Standard Tools**: Window/Level 조절, Zoom/Pan 기능
+
+### ⚙️ Adjustable AI Threshold
+실시간 슬라이더로 AI 민감도 임계값을 기관별/상황별 기준에 맞게 조정할 수 있습니다.
+
+### 🎨 Medical-Safe Color System
+의료 안전을 고려한 Semantic Colors(Soft Red/Green)와 Lucide React 아이콘을 사용합니다.
