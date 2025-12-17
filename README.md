@@ -24,8 +24,7 @@
 ## 📺 Project Demo
 실제 웹 애플리케이션의 구동 모습과 시나리오 시연 영상입니다.
 
-![REM XTA Demo Video]
-http://img.youtube.com/vi/cdm94JtcWEc?si=nSh9kU70KHzFnddw/maxresdefault.jpg
+[![REM XTA Demo Video](http://img.youtube.com/vi/cdm94JtcWEc/maxresdefault.jpg)](https://www.youtube.com/watch?v=cdm94JtcWEc)
 
 > **💡 시연 시나리오:** 환자 등록 → 바이탈/X-ray 입력 → AI 멀티모달 분석 → 히트맵 확인 → Triage(응급도) 분류
 
