@@ -1,4 +1,4 @@
-./assets/banner.png
+![REM XTA Banner](./assets/banner.png)
 
 <div align="center">
 
