@@ -1,0 +1,41 @@
+# --- 시스템 파일 ---
+.DS_Store
+Thumbs.db
+
+# --- Frontend (Vite/React) ---
+node_modules/
+/frontend/node_modules/
+
+# Vite의 빌드 결과물 폴더 (CRA의 build와 다름)
+dist/
+dist-ssr/
+
+# 환경 변수 파일 (API 키 등 보안 정보)
+.env
+.env.local
+.env.*.local
+
+# Vite 관련 로그
+*-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- AI & Python (Colab) ---
+# 파이썬 캐시 및 가상환경
+__pycache__/
+*.py[cod]
+venv/
+env/
+.venv/
+
+# 주피터 노트북 체크포인트
+.ipynb_checkpoints/
+
+# --- 중요: 의료 데이터 보안 (절대 업로드 금지) ---
+*.dcm
+*.dicom
+*.nii
+*.nii.gz
+/ai-model/datasets/*
+!/ai-model/datasets/sample_vital.csv
