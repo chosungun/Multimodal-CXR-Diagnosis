@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+      /* Hide the native cursor everywhere (some elements set their own cursor) */
+      html.has-big-cursor,
+      html.has-big-cursor body,
+      html.has-big-cursor * {
+        cursor: none !important;
+      }
+
+      #bigCursor {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        border: 2px solid rgba(35, 35, 35, 0.92); /* dark gray ring */
+        background: transparent;
+        box-shadow:
+          0 6px 16px rgba(0, 0, 0, 0.20),
+          0 0 0 1px rgba(255, 255, 255, 0.10); /* slight lift + edge contrast */
+        pointer-events: none;
+        z-index: 999999;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 120ms ease;
+        will-change: left, top;
+      }
+
+      html.has-big-cursor #bigCursor { opacity: 1; }
+
+      /* Optional: smaller on very small screens */
+      @media (max-width: 480px) {
+        #bigCursor { width: 22px; height: 22px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="bigCursor" aria-hidden="true"></div>
+    <script>
+      // Enable big cursor for desktop pointers only.
+      (function () {
+        const root = document.documentElement;
+        const cursorEl = document.getElementById('bigCursor');
+        if (!cursorEl) return;
+
+        const mq = window.matchMedia('(pointer: fine)');
+        const enable = () => root.classList.add('has-big-cursor');
+        const disable = () => root.classList.remove('has-big-cursor');
+
+        // Default: enable only if we have a fine pointer (mouse/trackpad)
+        // Fallback: also enable on first mouse move (some environments misreport pointer capability)
+        let isEnabled = false;
+        const ensureEnabled = () => {
+          if (isEnabled) return;
+          isEnabled = true;
+          enable();
+        };
+
+        if (mq.matches) ensureEnabled();
+
+        const onMove = (e) => {
+          ensureEnabled();
+          cursorEl.style.left = e.clientX + 'px';
+          cursorEl.style.top = e.clientY + 'px';
+        };
+
+        window.addEventListener('mousemove', onMove, { passive: true });
+        window.addEventListener('mouseenter', () => (cursorEl.style.opacity = '1'));
+        window.addEventListener('mouseleave', () => (cursorEl.style.opacity = '0'));
+
+        // React to pointer capability changes (rare, but safe)
+        if (mq.addEventListener) {
+          mq.addEventListener('change', (ev) => (ev.matches ? enable() : disable()));
+        } else if (mq.addListener) {
+          mq.addListener((ev) => (ev.matches ? enable() : disable()));
+        }
+
+        // Optional: quick toggle in dev console:
+        // window.__toggleBigCursor = () => root.classList.toggle('has-big-cursor');
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

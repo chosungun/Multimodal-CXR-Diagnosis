@@ -1,0 +1,212 @@
+/* src/components/layout/Navbar.css */
+/* REM Brand: Flat Clinical UI + Blue Monochrome System */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 56px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E0E3E8;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ===== 왼쪽: 로고 영역 ===== */
+.navbar__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 대시보드 페이지: 흰배경 파란아이콘 */
+.navbar__home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #FFFFFF;
+  color: #3D6BFF;
+  border: 1px solid #E0E3E8;
+  border-radius: 50%;
+}
+
+/* 다른 페이지: 파란배경 흰아이콘 */
+.navbar__back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #3D6BFF;
+  color: #FFFFFF;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.navbar__back-btn:hover {
+  background: #2952CC;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar__logo-image {
+  width: 100px;
+  height: auto;
+}
+
+.navbar__brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.navbar__brand-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1B1C1F;
+  line-height: 1.2;
+}
+
+.navbar__brand-sub {
+  font-size: 11px;
+  color: #8D9198;
+  font-weight: 500;
+}
+
+/* ===== 오른쪽: 설정 영역 ===== */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__divider {
+  width: 1px;
+  height: 20px;
+  background: #E0E3E8;
+  margin: 0 4px;
+}
+
+.navbar__lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #585C63;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar__lang-btn:hover {
+  background: transparent;
+  color: #3D6BFF;
+}
+
+.navbar__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  color: #585C63;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar__icon-btn:hover {
+  background: transparent;
+  color: #3D6BFF;
+}
+
+.navbar__icon-btn.active {
+  color: #3D6BFF;
+}
+
+.navbar__profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.navbar__profile-btn:hover {
+  background: transparent;
+  color: #3D6BFF;
+}
+
+.navbar__avatar {
+  width: 28px;
+  height: 28px;
+  background: #3D6BFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.navbar__avatar svg {
+  width: 16px;
+  height: 16px;
+  stroke: #FFFFFF;
+  fill: none;
+}
+
+/* in case a filled icon is used */
+.navbar__avatar svg * {
+  stroke: #FFFFFF;
+}
+
+.navbar__avatar svg [fill]:not([fill="none"]) {
+  fill: #FFFFFF;
+}
+
+.navbar__profile-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1B1C1F;
+}
+
+.navbar__profile-btn svg:last-child {
+  color: #8D9198;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+    height: 52px;
+  }
+
+  .navbar__brand-info {
+    display: none;
+  }
+
+  .navbar__profile-name {
+    display: none;
+  }
+
+  .navbar__lang-btn span {
+    display: none;
+  }
+}
